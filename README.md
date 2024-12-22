@@ -132,8 +132,10 @@ Set ownership to the apache user and group (this is the default web server user 
 
 `
 sudo chown -R apache:apache /var/www/html/
+
 Set permissions to ensure files are readable by the web server:
-sudo chmod -R 755 /var/www/html/
+
+`sudo chmod -R 755 /var/www/html/
 `
 
 # 4. **Configure Networking and Security**
