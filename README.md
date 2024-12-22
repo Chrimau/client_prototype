@@ -89,43 +89,56 @@ If it's running, you should see output indicating that Apache is active.
 
 ---
 
-# 3. **Deploy the HTML Page**
+# 3. Deploy the HTML Page
+In this step, you'll clone your GitHub repository to the EC2 instance, move the HTML files into the appropriate directory, and configure the necessary permissions.
 
-#### 3.1. Upload Your HTML Files:
-You can upload your HTML files (and images, CSS, etc.) to the EC2 instance using SCP or SFTP. Here's how to do it using SCP from your **local machine**:
+# 3.1. Clone the GitHub Repository to the EC2 Instance
 
-**SCP Command** (Replace with your actual file paths and EC2 public IP):
-```bash
-scp -i /path/to/your-key.pem /path/to/local/index.html ec2-user@your-ec2-public-ip:/home/ec2-user/
-```
+NB: Before you can clone a github repo, you need a public key pair beacuse permissions for password auths on github for remote clone are no longer avaialble. so copy your public key from your aws and paste it in your github settings. Then you can proceed without needing to input your password to remotely access the repo.
+-
+While still sshed in your ec2 instance, navigate to the directory where you want to clone your GitHub repository (for example, /home/ec2-user):
+`
+cd /home/ec2-user
+`
+Clone the GitHub repository that contains your HTML files. Replace the URL with your repository’s URL:
 
-If you have an `images` folder or additional assets, you can upload them similarly:
+`
+git clone https://github.com/yourusername/your-repository.git
+`
 
-```bash
-scp -i /path/to/your-key.pem -r /path/to/local/images ec2-user@your-ec2-public-ip:/home/ec2-user/images
-```
+This will clone the repository into a folder with the same name as your-repository in the current directory.
 
-#### 3.2. Move Files to the Web Directory:
-Apache serves files from `/var/www/html` by default. Move your `index.html` and other assets to that directory:
 
-```bash
-sudo mv /home/ec2-user/index.html /var/www/html/
-sudo mv /home/ec2-user/images /var/www/html/
-```
+# 3.2. Move HTML Files to Apache's Web Directory
 
-#### 3.3. Set Correct Permissions:
-Ensure that Apache has permission to serve the files:
+Apache serves files from the /var/www/html directory by default. You need to move the necessary files (e.g., index.html, images, CSS) from the cloned repository to this directory.
 
-```bash
-sudo chown -R apache:apache /var/www/html/
-sudo chmod -R 755 /var/www/html/
-```
+Change directory to the cloned repository:
+cd /home/ec2-user/your-repository
+Move the index.html file and any other necessary files (like images and styles) to the Apache web server's document root (/var/www/html):
 
+--
+sudo mv index.html /var/www/html/
+sudo mv images /var/www/html/
+sudo mv styles.css /var/www/html/  # If you have a CSS file
 ---
 
-### 4. **Configure Networking and Security**
 
-#### 4.1. Open Firewall Ports (Security Group Settings):
+# 3.3. Set Correct Permissions
+
+After moving the files, you need to ensure that the web server (Apache) has the proper permissions to access and serve these files.
+
+Set ownership to the apache user and group (this is the default web server user on Amazon Linux):
+
+`
+sudo chown -R apache:apache /var/www/html/
+Set permissions to ensure files are readable by the web server:
+sudo chmod -R 755 /var/www/html/
+`
+
+# 4. **Configure Networking and Security**
+
+# 4.1. Open Firewall Ports (Security Group Settings):
 If you haven’t already done so during instance creation, ensure the **Security Group** associated with your EC2 instance allows traffic on the necessary ports:
 
 1. **SSH (Port 22)**: To allow you to connect to the server via SSH.
@@ -149,24 +162,25 @@ Open a browser and enter the **public IP address** or **public DNS** of your EC2
 
 ```
 http://your-ec2-public-ip
+
 ```
 
-You should see the HTML page you deployed. If you uploaded images and other assets, ensure they are correctly displayed on the page.
+You should see the HTML page you deployed. If you uploaded images and other assets, confirm that they are correctly displayed on the page.
 
 ---
 
-### 6. **(Optional) Set Up a Domain Name (DNS)**
+# 6. **(Optional) Set Up a Domain Name (DNS)**
 
 If you want to associate a domain name with your EC2 instance:
 
-1. Purchase a domain name through a domain registrar (e.g., GoDaddy, Namecheap).
+1. Purchase a domain name through a domain registrar (e.g., GoDaddy, free.DNS, Namecheap).
 2. In **AWS Route 53**, create a hosted zone for your domain.
 3. Create an **A record** pointing your domain to your EC2 instance's public IP address.
 4. It may take a few minutes for DNS changes to propagate.
 
 ---
 
-### 7. **Ensure Security Best Practices**
+# 7. **Ensure Security Best Practices**
 
 - **SSH Access**: Consider limiting SSH access by only allowing your IP address in the security group for SSH (port 22).
 - **Regular Updates**: Regularly update your EC2 instance to ensure it’s secure.
@@ -174,12 +188,11 @@ If you want to associate a domain name with your EC2 instance:
 ---
 
 ### Conclusion
-
-By following these steps, you’ve successfully:
+By following these steps, you have successfully:
 
 1. **Provisioned** an EC2 instance.
 2. **Installed** the Apache web server.
 3. **Deployed** your HTML page and assets to the server.
 4. **Configured networking** and security to allow access to your website.
 
-You now have a running web server on AWS EC2 serving your HTML page. Let me know if you need help with any additional steps or have further questions!
+You now have a running web server on AWS EC2 serving your HTML page. I hope you found it helpful. Do not forget to kindly leave a star! Thank you!
