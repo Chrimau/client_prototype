@@ -1,3 +1,14 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001F3F;  /* Apricot color */
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 .navbar .nav-links {
     list-style: none;
     display: flex;
