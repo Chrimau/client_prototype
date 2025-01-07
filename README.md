@@ -1,18 +1,7 @@
-Heyy, welcome to my project repository. 
-NAME: GINIKA NWOKEJI
-ALT ID: ALT/SOE/024/1229.
-PUBLIC IP: (http://52.90.66.123)
-I created a directory for the project and created three files: index.html, style.css, and script.js. Then i created a new repository on Github. I went back to my vscode terminal and initialized git for my project.git
-git init
-git add index.html
-git add style.css
-git add script.js
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Chrimau/client_prototype.git
-git push -u origin main
-
-Afterwards, I wrote content for the landing page of the prototype in my index.html file.
+# Heyy, welcome to my project repository. 
+# NAME: GINIKA NWOKEJI
+# ALT ID: ALT/SOE/024/1229.
+# PUBLIC IP: (http://44.201.222.188)
 
 # Step-by-Step Documentation for Setting Up a Web Server on AWS EC2
 
@@ -22,6 +11,19 @@ Afterwards, I wrote content for the landing page of the prototype in my index.ht
 - **SSH key pair** (.pem file) for EC2 access.
 - A **local machine** to copy files to the EC2 instance.
 
+# Procedure
+I created a directory for the project and created three files: index.html, style.css, and script.js. Then i created a new repository on Github. I went back to my vscode terminal and initialized git for my project:
+
+git init
+git add index.html
+git add style.css
+git add script.js
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Chrimau/client_prototype.git
+git push -u origin main
+
+Afterwards, I wrote content for the landing page of the prototype in my index.html file, added styling in the css and responsiveness using javascript. Afterwards, i providioned an ec2 instace on AWS.
 
  1. **Provision an EC2 Instance**
 
@@ -175,7 +177,7 @@ You should see the HTML page you deployed. If you uploaded images and other asse
 
 # 6. **(Optional) Set Up a Domain Name (DNS)**
 
-If you want to associate a domain name with your EC2 instance:
+I did not connect it to a domain name but, If you want to associate a domain name with your EC2 instance:
 
 1. Purchase a domain name through a domain registrar (e.g., GoDaddy, free.DNS, Namecheap).
 2. In **AWS Route 53**, create a hosted zone for your domain.
