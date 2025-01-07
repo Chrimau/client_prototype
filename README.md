@@ -165,9 +165,11 @@ Open a browser and enter the **public IP address** or **public DNS** of your EC2
 ```
 http://your-ec2-public-ip
 
+example:
+http://44.201.222.188
 ```
 
-You should see the HTML page you deployed. If you uploaded images and other assets, confirm that they are correctly displayed on the page.
+You should see the HTML page you deployed. If you uploaded images and other assets, confirm that they are correctly displayed on the page. Here is the display of my webpage.
 
 ---
 
