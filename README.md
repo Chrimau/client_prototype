@@ -7,7 +7,7 @@
 
 # Prerequisites:
 - An **AWS** account.
-- Aaccess to the AWS **Management Console**.
+- Access to the AWS **Management Console**.
 - **SSH key pair** (.pem file) for EC2 access.
 - A **local machine** to copy files to the EC2 instance.
 
