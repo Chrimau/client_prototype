@@ -14,14 +14,14 @@
 # Procedure
 I created a directory for the project and created three files: index.html, style.css, and script.js. Then i created a new repository on Github. I went back to my vscode terminal and initialized git for my project:
 
-git init
-git add index.html
-git add style.css
-git add script.js
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Chrimau/client_prototype.git
-git push -u origin main
+- git init
+- git add index.html
+- git add style.css
+- git add script.js
+- git commit -m "first commit"
+- git branch -M main
+- git remote add origin https://github.com/Chrimau/client_prototype.git
+- git push -u origin main
 
 Afterwards, I wrote content for the landing page of the prototype in my index.html file, added styling in the css and responsiveness using javascript. Afterwards, i providioned an ec2 instace on AWS.
 
@@ -51,10 +51,11 @@ Afterwards, I wrote content for the landing page of the prototype in my index.ht
 1. After the instance state is **running**, get the **public IP** or **public DNS** of your EC2 instance.
 2. SSH into your EC2 instance from your local machine, using the following command (replace with your actual `.pem` file path and public IP):
 
-   ```bash
+ <pre>
+		```bash
    ssh -i /path/to/your-key.pem ec2-user@your-ec2-public-ip
-   ```
-
+ ``` 
+	</pre>
 
 # 2. **Install Apache Web Server**
 
