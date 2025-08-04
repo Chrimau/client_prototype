@@ -51,11 +51,9 @@ Afterwards, I wrote content for the landing page of the prototype in my index.ht
 1. After the instance state is **running**, get the **public IP** or **public DNS** of your EC2 instance.
 2. SSH into your EC2 instance from your local machine, using the following command (replace with your actual `.pem` file path and public IP):
 
- <pre>
-		```bash
+```bash
    ssh -i /path/to/your-key.pem ec2-user@your-ec2-public-ip
- ``` 
-	</pre>
+ ```
 
 # 2. **Install Apache Web Server**
 
